@@ -15,10 +15,5 @@ abstract class ActivityBuilderModule {
         internal fun getString():String {
             return "Test Message"
         }
-
-        @Provides
-        internal fun getString2():String {
-            return "Test Message2"
-        }
     }
 }
