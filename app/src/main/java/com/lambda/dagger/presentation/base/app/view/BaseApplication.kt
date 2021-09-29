@@ -1,4 +1,4 @@
-package com.lambda.dagger.presentation.base.app
+package com.lambda.dagger.presentation.base.app.view
 
 import com.lambda.dagger.presentation.base.app.di.DaggerAppComponent
 import dagger.android.AndroidInjector

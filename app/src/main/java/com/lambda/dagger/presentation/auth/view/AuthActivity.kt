@@ -28,5 +28,6 @@ class AuthActivity : AppCompatActivity() {
         imageViewAvatar = findViewById(R.id.imageViewAvatar)
         requestManager.load(R.drawable.ic_sample_avatar).into(imageViewAvatar)
         authViewModel = ViewModelProviders.of(this, viewModelProviderFactory).get(AuthViewModel::class.java)
+        authViewModel.getUser(1)
     }
 }

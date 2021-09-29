@@ -1,7 +1,7 @@
 package com.lambda.dagger.presentation.base.app.di
 
 import android.app.Application
-import com.lambda.dagger.presentation.base.app.BaseApplication
+import com.lambda.dagger.presentation.base.app.view.BaseApplication
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
