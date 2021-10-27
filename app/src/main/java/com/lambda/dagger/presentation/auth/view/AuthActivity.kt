@@ -6,14 +6,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.RequestManager
 import com.lambda.dagger.R
+import com.lambda.dagger.presentation.auth.di.TestKhodam
 import com.lambda.dagger.presentation.auth.viewmodel.AuthViewModel
 import com.lambda.dagger.presentation.base.app.viewmodel.ViewModelProviderFactory
 import dagger.android.AndroidInjection
-import dagger.android.DaggerActivity
 import javax.inject.Inject
 
 class AuthActivity : AppCompatActivity() {
@@ -27,6 +26,9 @@ class AuthActivity : AppCompatActivity() {
     lateinit var viewModelProviderFactory: ViewModelProviderFactory
     private lateinit var authViewModel: AuthViewModel
 
+    @Inject
+    lateinit var testKhodamImp1 : Map<String, @JvmSuppressWildcards TestKhodam.Test>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
@@ -35,6 +37,7 @@ class AuthActivity : AppCompatActivity() {
         injectionSetup()
         subscribeObservers()
         clickListeners()
+        Log.d("hereHere", "here " + testKhodamImp1["testKey1"]?.provide())
     }
 
     private fun findViews() {
