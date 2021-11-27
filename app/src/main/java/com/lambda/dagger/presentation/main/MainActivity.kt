@@ -1,4 +1,4 @@
-package com.lambda.dagger.presentation
+package com.lambda.dagger.presentation.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

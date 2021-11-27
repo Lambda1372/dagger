@@ -63,7 +63,14 @@ class AuthActivity : AppCompatActivity() {
     private fun subscribeObservers(){
         authViewModel.observeUser().observe(this,
             {
-                Log.d("hereSSS", it.user.username.toString())
+                when(it.state) {
+                    AuthViewModel.State.LOADED_DATA -> {
+                        Log.d("hereSSS", it.user?.username.toString())
+                    }
+                    AuthViewModel.State.ERROR_DATA -> {
+                        //nothing
+                    }
+                }
             }
         )
     }

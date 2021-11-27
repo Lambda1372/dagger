@@ -1,4 +1,4 @@
-package com.lambda.dagger.presentation.auth.viewmodel
+package com.lambda.dagger.presentation.base.app.viewmodel
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
