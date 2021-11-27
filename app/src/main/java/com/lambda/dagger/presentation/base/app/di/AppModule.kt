@@ -41,6 +41,13 @@ abstract class AppModule {
 
         @Singleton
         @Provides
+        @Named("BaseUrl2")
+        internal fun provideBaseUrl2():String {
+            return Constants.BASE_URL
+        }
+
+        @Singleton
+        @Provides
         internal fun provideRetrofit(@Named("BaseUrl") baseUrl:String, client: OkHttpClient):Retrofit {
             return Retrofit
                 .Builder()

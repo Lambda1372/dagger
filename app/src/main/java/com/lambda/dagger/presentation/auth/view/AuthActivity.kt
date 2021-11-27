@@ -14,6 +14,7 @@ import com.lambda.dagger.presentation.auth.viewmodel.AuthViewModel
 import com.lambda.dagger.presentation.base.app.viewmodel.ViewModelProviderFactory
 import dagger.android.AndroidInjection
 import javax.inject.Inject
+import javax.inject.Named
 
 class AuthActivity : AppCompatActivity() {
     private lateinit var imageViewAvatar:ImageView
@@ -21,6 +22,14 @@ class AuthActivity : AppCompatActivity() {
     private lateinit var buttonLogin:Button
     @Inject
     lateinit var requestManager: RequestManager
+
+    @Inject
+    @Named("BaseUrl")
+    lateinit var ss1: String
+
+    @Inject
+    @Named("BaseUrl2")
+    lateinit var ss2: String
 
     @Inject
     lateinit var viewModelProviderFactory: ViewModelProviderFactory
@@ -37,7 +46,7 @@ class AuthActivity : AppCompatActivity() {
         injectionSetup()
         subscribeObservers()
         clickListeners()
-        Log.d("hereHere", "here " + testKhodamImp1["testKey1"]?.provide())
+        Log.d("hereHere", "here " + testKhodamImp1["testKey1"]?.provide() + " " + ss1 + " " + ss2)
     }
 
     private fun findViews() {
