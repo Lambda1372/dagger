@@ -12,6 +12,7 @@ import com.lambda.dagger.R
 import com.lambda.dagger.presentation.auth.di.TestKhodam
 import com.lambda.dagger.presentation.auth.viewmodel.AuthViewModel
 import com.lambda.dagger.presentation.base.app.viewmodel.ViewModelProviderFactory
+import com.lambda.dagger.presentation.base.utils.ResponseResource
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 import javax.inject.Named
@@ -63,12 +64,15 @@ class AuthActivity : AppCompatActivity() {
     private fun subscribeObservers(){
         authViewModel.observeUser().observe(this,
             {
-                when(it.state) {
-                    AuthViewModel.State.LOADED_DATA -> {
-                        Log.d("hereSSS", it.user?.username.toString())
+                when(it.status) {
+                    ResponseResource.State.LOADED -> {
+                        Log.d("hereSSS", it.data?.username.toString())
                     }
-                    AuthViewModel.State.ERROR_DATA -> {
+                    ResponseResource.State.ERROR -> {
                         //nothing
+                    }
+                    else -> {
+
                     }
                 }
             }
