@@ -1,4 +1,4 @@
-package com.lambda.dagger.presentation.main
+package com.lambda.dagger.presentation.main.view
 
 import android.os.Bundle
 import com.lambda.dagger.R
@@ -8,5 +8,8 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayoutFragmentContainer, ProfileFragment())
+            .commit()
     }
 }

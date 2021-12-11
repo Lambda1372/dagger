@@ -1,5 +1,6 @@
 package com.lambda.dagger.presentation.auth.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -13,6 +14,7 @@ import com.lambda.dagger.presentation.auth.viewmodel.AuthViewModel
 import com.lambda.dagger.presentation.base.app.viewmodel.ViewModelProviderFactory
 import com.lambda.dagger.presentation.base.utils.ResponseResource
 import com.lambda.dagger.presentation.base.view.BaseActivity
+import com.lambda.dagger.presentation.main.view.MainActivity
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 import javax.inject.Named
@@ -66,6 +68,8 @@ class AuthActivity : BaseActivity() {
                 when(it.status) {
                     ResponseResource.State.LOADED -> {
                         Log.d("hereSSS", it.data?.username.toString())
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
                     }
                     ResponseResource.State.ERROR -> {
                         //nothing
