@@ -10,7 +10,8 @@ class UserSessionManager @Inject constructor() {
     private val mediatorLiveData:MediatorLiveData<ResponseResource<User?>> = MediatorLiveData()
 
 
-    fun authenticateUser(source: LiveData<ResponseResource<User?>>) {
+    fun authenticateUser(source: LiveData<ResponseResource<User?>?>) {
+        loading()
         mediatorLiveData.addSource(source, object : Observer<ResponseResource<User?>?> {
             override fun onChanged(responseResource: ResponseResource<User?>?) {
                 mediatorLiveData.value = responseResource
