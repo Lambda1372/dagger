@@ -13,7 +13,7 @@ import javax.inject.Singleton
 @Component(modules = [AndroidInjectionModule::class, ActivityBuilderModule::class, AppModule::class, ViewModelFactoryModule::class])
 interface AppComponent : AndroidInjector<BaseApplication> {
 
-    fun getUserSessionManager(): UserSessionManager
+
 
     @Component.Builder
     interface Builder {

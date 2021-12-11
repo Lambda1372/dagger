@@ -5,6 +5,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
 import com.lambda.dagger.presentation.base.utils.Constants
+import com.lambda.dagger.presentation.base.utils.UserSessionManager
 import dagger.Module
 import dagger.Provides
 import io.reactivex.schedulers.Schedulers
@@ -66,6 +67,12 @@ abstract class AppModule {
             return OkHttpClient.Builder()
                 .addInterceptor(logging)
                 .build()
+        }
+
+        @Singleton
+        @Provides
+        internal fun provideUserSessionManager(): UserSessionManager {
+           return UserSessionManager()
         }
     }
 }

@@ -11,6 +11,7 @@ import com.lambda.dagger.presentation.base.utils.UserSessionManager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import retrofit2.HttpException
 import javax.inject.Inject
 
 
@@ -25,8 +26,9 @@ class AuthViewModel @Inject constructor(private var authApi: AuthApi, private va
                 mutableLiveData.value = ResponseResource.loaded(it)
                 userSessionManager.authenticateUser(mutableLiveData)
             },{
-                mutableLiveData.value = ResponseResource.error(null)
+                mutableLiveData.value = ResponseResource.logout()
                 userSessionManager.authenticateUser(mutableLiveData)
+
             })
 
         addDisposable(disposable)

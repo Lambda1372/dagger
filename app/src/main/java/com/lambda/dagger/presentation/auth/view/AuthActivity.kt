@@ -5,7 +5,6 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.RequestManager
 import com.lambda.dagger.R
@@ -13,11 +12,12 @@ import com.lambda.dagger.presentation.auth.di.TestKhodam
 import com.lambda.dagger.presentation.auth.viewmodel.AuthViewModel
 import com.lambda.dagger.presentation.base.app.viewmodel.ViewModelProviderFactory
 import com.lambda.dagger.presentation.base.utils.ResponseResource
+import com.lambda.dagger.presentation.base.view.BaseActivity
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 import javax.inject.Named
 
-class AuthActivity : AppCompatActivity() {
+class AuthActivity : BaseActivity() {
     private lateinit var imageViewAvatar:ImageView
     private lateinit var editTextTextPersonName:EditText
     private lateinit var buttonLogin:Button
@@ -40,7 +40,6 @@ class AuthActivity : AppCompatActivity() {
     lateinit var testKhodamImp1 : Map<String, @JvmSuppressWildcards TestKhodam.Test>
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
         findViews()
@@ -72,6 +71,7 @@ class AuthActivity : AppCompatActivity() {
                         //nothing
                     }
                     else -> {
+                        Log.d("hereSSS", "heere")
 
                     }
                 }
